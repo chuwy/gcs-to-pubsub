@@ -1,7 +1,5 @@
 # GCS-to-PubSub
 
-This project contains applications used to load [Snowplow][snowplow] enriched data into [Google BigQuery][bigquery].
-
 ## Quickstart
 
 Assuming git and [SBT][sbt] installed:
