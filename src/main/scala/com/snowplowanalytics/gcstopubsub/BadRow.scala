@@ -1,6 +1,7 @@
 package com.snowplowanalytics.gcstopubsub
 
 import cats.syntax.either._
+import cats.syntax.show._
 
 import java.util.Base64.getDecoder
 
@@ -28,6 +29,6 @@ object BadRow {
   def parse(line: String): BadRow =
     parseJson(line)
       .flatMap(_.as[BadRow])
-      .valueOr(throw new RuntimeException(s"Unexpected data in GCS: $line"))
+      .valueOr(error => throw new RuntimeException(s"Unexpected data in GCS: $line. ${error.show}"))
 }
 
